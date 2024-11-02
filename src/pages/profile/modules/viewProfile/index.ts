@@ -1,0 +1,1 @@
+export { ViewProfilePage } from './viewProfile';

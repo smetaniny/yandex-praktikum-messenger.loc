@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES2018",
+    "declaration": false,
+    "module": "ES6",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "typeRoots": ["node_modules/@types"]
+    },
+    "include": ["src", "typings/svg.d.ts"],
+    "transpileOnly": true,
+    "files": true
+  },
+  "include": ["src", "typings/svg.d.ts"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "files": ["typings/svg.d.ts"]
+}

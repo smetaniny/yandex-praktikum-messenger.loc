@@ -1,0 +1,47 @@
+@import '../../../../static/styles/base/colors';
+
+.view-profile {
+  &__form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 800;
+    gap: 0.75rem;
+    justify-content: center;
+    line-height: 1rem;
+    margin: 0.625rem 0;
+  }
+}
+
+.profile {
+  &__buttons-panel {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  &__change-data-link,
+  &__change-password-link,
+  &__back-link {
+    color: $brand-color;
+    font-weight: 600;
+    margin: 0.313rem 0;
+    padding: 0;
+  }
+
+  &__sign-out-link {
+    margin: 0.313rem 0;
+    text-align: center;
+    width: fit-content;
+  }
+}
+
+.sign-out-button {
+  color: $text-highlight;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+}

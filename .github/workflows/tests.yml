@@ -1,0 +1,162 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - main  # Запускаем действия при открытии pull request в ветку main
+
+jobs:
+  sprint_1:
+    # Условие для выполнения только на ветке sprint_1
+    if: ${{github.head_ref == 'sprint_1'}}
+    # Операционная система для выполнения задач
+    runs-on: ubuntu-latest
+    # Стратегия выполнения с матрицей версий Node.js
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      # Шаг для инициализации репозитория
+      - name: Set up GitHub Actions
+        uses: actions/checkout@v2
+
+      # Шаг для установки Node.js с выбранной версией из матрицы
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Проверка, что репозиторий приватный, иначе завершаем выполнение с ошибкой
+      - name: Сheck if the repository is private
+        run: exit 1
+        if: ${{github.event.repository.private}}
+
+      # Клонирование репозитория с тестовыми скриптами
+      - name: Get testing lib
+        run: set -eu && git clone https://github.com/Yandex-Practicum/tests-second-floor.git
+
+      # Проверка наличия директорий dist и node_modules в .gitignore
+      - name: Check dist and node_modules in .gitignore
+        run: bash tests-second-floor/sprint_1/check_gitignore.sh
+
+      # Проверка наличия скрипта npm run start
+      - name: Check npm run start existence
+        run: bash tests-second-floor/sprint_1/check_start.sh
+
+      # Проверка использования Parcel в стартовом скрипте
+      - name: Check Parcel in start script
+        run: bash tests-second-floor/sprint_1/check_parcel.sh
+
+      # Проверка использования порта 3000
+      - name: Check PORT 3000
+        run: bash tests-second-floor/sprint_1/check_port.sh
+
+      # Проверка маршрутизации
+      - name: Check routing
+        run: node tests-second-floor/sprint_1/check_routing.js
+
+  sprint_2:
+    # Условие для выполнения только на ветке sprint_2
+    if: ${{github.head_ref == 'sprint_2'}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Set up GitHub Actions
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Сheck if the repository is private
+        run: exit 1
+        if: ${{github.event.repository.private}}
+
+      - name: Get testing lib
+        run: set -eu && git clone https://github.com/Yandex-Practicum/tests-second-floor.git
+
+      - name: Check dist and node_modules in .gitignore
+        run: bash tests-second-floor/sprint_1/check_gitignore.sh
+
+      - name: Check npm run start existence
+        run: bash tests-second-floor/sprint_1/check_start.sh
+
+      - name: Check Parcel in start script
+        run: bash tests-second-floor/sprint_1/check_parcel.sh
+
+      - name: Check PORT 3000
+        run: bash tests-second-floor/sprint_1/check_port.sh
+
+      # sprint 2 checks
+      # Проверка наличия TypeScript в package.json
+      - name: Check typescript in package.json
+        run: node tests-second-floor/sprint_2/check_typescript.js
+
+      # Проверка обязательных правил в tsconfig
+      - name: Check tsconfig required rules
+        run: node tests-second-floor/sprint_2/check_tsconfig.js
+
+      # Проверка конфигурации eslint
+      - name: Check eslint
+        run: node tests-second-floor/sprint_2/check_eslint.js
+
+      # Проверка конфигурации stylelint
+      - name: Check stylelint
+        run: node tests-second-floor/sprint_2/check_stylelint.js
+
+  sprint_3:
+    # Условие для выполнения только на ветке sprint_3
+    if: ${{github.head_ref == 'sprint_3'}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Set up GitHub Actions
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Сheck if the repository is private
+        run: exit 1
+        if: ${{github.event.repository.private}}
+
+      - name: Get testing lib
+        run: set -eu && git clone https://github.com/Yandex-Practicum/tests-second-floor.git
+
+      # Запуск тестов для спринта 3
+      - name: Run the tests
+        run: bash tests-second-floor/sprint_3/run.sh
+
+  sprint_4:
+    # Условие для выполнения только на ветке sprint_4
+    if: ${{github.head_ref == 'sprint_4'}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Set up GitHub Actions
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Сheck if the repository is private
+        run: exit 1
+        if: ${{github.event.repository.private}}
+
+      - name: Get testing lib
+        run: set -eu && git clone https://github.com/Yandex-Practicum/tests-second-floor.git
+
+      # Запуск тестов для спринта 4
+      - name: Run the tests
+        run: bash tests-second-floor/sprint_4/run.sh

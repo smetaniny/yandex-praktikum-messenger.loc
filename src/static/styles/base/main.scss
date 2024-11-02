@@ -1,0 +1,24 @@
+@import './reseter';
+@import './fonts';
+@import './colors';
+
+body {
+  background-color: $bg-color;
+  color: $text-primary;
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

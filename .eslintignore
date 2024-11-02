@@ -1,0 +1,9 @@
+/dist
+/node_modules
+/src/**/*.tmpl.*
+/src/**/*.min.*
+/src/**/*.spec.*
+/typings
+.parcel-cache
+server.js
+webpack.config.js

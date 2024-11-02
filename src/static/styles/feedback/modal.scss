@@ -1,0 +1,152 @@
+@import '../base/colors';
+
+.eins-modal-backdrop {
+  background: $overlay-color;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.eins-modal,
+.eins-modal-backdrop {
+  display: none;
+  position: fixed;
+  width: 100%;
+}
+
+.eins-modal {
+  left: 50%;
+  max-height: 100%;
+  overflow: auto;
+  padding: 0 1rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+
+.eins-modal,
+.eins-modal-content {
+  box-sizing: border-box;
+}
+
+.eins-modal-content {
+  align-content: center;
+  align-items: center;
+  background: $bg-color;
+  border: 0;
+  border-radius: 0.5rem;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
+  max-width: 24rem;
+  padding: 2.2rem;
+  position: relative;
+  width: 100%;
+}
+
+.eins-modal-close {
+  border: 0;
+  border-radius: 0.5rem;
+  bottom: auto;
+  box-sizing: content-box;
+  color: $text-primary;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  left: auto;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1rem;
+}
+
+.eins-modal-close:hover {
+  border-color: $input-color;
+  color: $text-highlight;
+}
+
+.eins-modal-close::after {
+  content: '\e900';
+}
+
+.eins-modal-dark > .eins-modal-content {
+  background: $eins_background;
+  border-color: $eins_border_color;
+  color: $eins_color;
+}
+
+.eins-modal-dark > .eins-modal-content .eins-modal-close {
+  border-color: $eins_border_color_close;
+  color: $eins_color_close;
+}
+
+.eins-modal-dark > .eins-modal-content .eins-modal-close:hover {
+  border-color: $eins_border_color_hover;
+  color: $eins_color_hover;
+}
+
+.eins-modal.eins-modal-lg > .eins-modal-content {
+  border-radius: 0.7rem;
+  max-width: 97.5rem;
+  padding: 2.5rem;
+}
+
+.eins-modal.eins-modal-lg > .eins-modal-content .eins-modal-close {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 1rem;
+}
+
+.eins-modal.eins-modal-sm > .eins-modal-content {
+  border-radius: 0.5rem;
+  max-width: 25rem;
+  padding: 2rem;
+}
+
+.eins-modal.eins-modal-sm > .eins-modal-content .eins-modal-close {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 1rem;
+}
+
+.eins-modal.eins-modal-xsm > .eins-modal-content {
+  border-radius: 0.5rem;
+  max-width: 18.75rem;
+  padding: 2rem;
+}
+
+.eins-modal.eins-modal-xsm > .eins-modal-content .eins-modal-close {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 1rem;
+}
+
+.fill-scrollbar-gap {
+  box-sizing: border-box;
+}
+
+.eins-modal__header {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-top: 1rem;
+}
+
+.eins-modal__input {
+  display: none;
+}
+
+.eins-modal__upload {
+  color: $brand-color;
+  font-size: 1rem;
+  margin: 2rem 0;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

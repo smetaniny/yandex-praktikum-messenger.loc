@@ -1,0 +1,29 @@
+@import '../../../../static/styles/base/colors';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 16rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__buttons-panel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__registration-link {
+    color: $brand-color;
+    font-size: 0.75rem;
+    height: 0.75rem;
+    line-height: 0.75rem;
+    margin-top: 0.875rem;
+    text-align: center;
+  }
+}
